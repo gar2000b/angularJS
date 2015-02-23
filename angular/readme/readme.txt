@@ -18,4 +18,7 @@ Directives:
 Teach HTML new tricks.
 <html ng-app> - angular directive.
 ...
-Name: <input type="text" ng-model="name" /> {{ name }} - data binding expression
+Name: <input type="text" ng-model="name" /> {{ name }} - data binding expression.
+
+Modules: config -> routes -> View && Controller
+Modules are Object Containers.

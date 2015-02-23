@@ -7,8 +7,9 @@
 <script src="./javascript/angular.min.js"></script>
 <script>
 	var app = angular.module("myApp", []);
-
-	app.controller('SimpleController', function($scope) {
+	var controllers = {};
+	
+	controllers.SimpleController = function($scope) {
 		$scope.customers = [ {
 			name : 'John Smith',
 			city : 'Pheonix'
@@ -19,7 +20,9 @@
 			name : 'Jane Doe',
 			city : 'San Francisco'
 		} ];
-	})
+	};
+	
+	app.controller(controllers);
 </script>
 </head>
 
