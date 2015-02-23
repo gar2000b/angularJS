@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+
+<head>
+<meta charset="UTF-8">
+<title>AngularJS Filters</title>
+<script src="./javascript/angular.min.js"></script>
+<script>
+	var app = angular.module("myApp", []);
+
+	app.controller('SimpleController', function($scope) {
+		$scope.customers = [ {
+			name : 'John Smith',
+			city : 'Pheonix'
+		}, {
+			name : 'John Doe',
+			city : 'New York'
+		}, {
+			name : 'Jane Doe',
+			city : 'San Francisco'
+		} ];
+	})
+</script>
+</head>
+
+<body data-ng-controller="SimpleController">
+	Name:
+	<br />
+	<input type="text" data-ng-model="name" /> {{ name }}
+	<br />
+	<ul>
+		<li data-ng-repeat="cust in customers | filter:name | orderBy:'city'">{{
+			cust.name | uppercase }} - {{ cust.city | lowercase }}</li>
+	</ul>
+</body>
+
+</html>
