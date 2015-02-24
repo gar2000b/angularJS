@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+
+<head>
+<meta charset="UTF-8">
+<title>AngularJS Filters</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script src="http://code.angularjs.org/1.2.1/angular-route.min.js"></script>
+<script>
+	var app = angular.module("myApp", ['ngRoute']);
+	app.config(function($routeProvider) {
+		$routeProvider.when('/view1', {
+			controller : 'SimpleController',
+			templateUrl : 'Partials/View1.html'
+		}).when('/view2', {
+			controller : 'SimpleController',
+			templateUrl : 'Partials/View2.html'
+		}).otherwise({
+			redirectTo : '/view1'
+		});
+	})
+
+	var controllers = {};
+
+	controllers.SimpleController = function($scope) {
+		$scope.customers = [ {
+			name : 'John Smith',
+			city : 'Pheonix'
+		}, {
+			name : 'John Doe',
+			city : 'New York'
+		}, {
+			name : 'Jane Doe',
+			city : 'San Francisco'
+		} ];
+
+ 		$scope.addCustomer = function() {
+			$scope.customers.push({
+				name : $scope.newCustomer.name,
+				city : $scope.newCustomer.city
+			});
+		};
+	};
+
+	app.controller(controllers);
+</script>
+</head>
+
+<body>
+	<!-- Placeholder for the views -->
+	<div data-ng-view></div>
+</body>
+
+</html>
