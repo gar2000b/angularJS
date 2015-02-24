@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>HTML Starter</title>
+		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	</head>
+	<body>
+		Name:<input id="textInput" type="text" />
+		Hello <span id="nameDiv"></span>
+		
+		<script>
+			// JQuery way.
+			$('#textInput').on('keyup', function() {
+				$('#nameDiv').html($('#textInput').val());
+			});
+		
+			// Old vanilla javascript way via the DOM.
+/* 			var textInputElement = document.getElementById('textInput');
+			var nameDivElement = document.getElementById('nameDiv');
+			
+			textInputElement.addEventListener('keyup', function() {
+				var text = textInputElement.value;
+				nameDivElement.innerHTML = text;
+			}); */
+		</script>
+	</body>
+</html>
