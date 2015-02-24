@@ -1,0 +1,32 @@
+<html ng-app="nameApp">
+<head>
+<meta charset="utf-8">
+<title>Angular js Example</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script src="http://code.angularjs.org/1.2.1/angular-route.min.js"></script>
+<script>
+	var nameApp = angular.module('nameApp', []);
+	nameApp.controller('NameCtrl', function($scope) {
+		$scope.firstName = 'John';
+
+		$scope.$watch('lastName', function(newValue, oldValue) {
+			console.log('new value is: ' + newValue);
+		});
+
+		setTimeout(function() {
+			$scope.lastName = "Smith";
+			// Propogates changes through angular from ASync Events that are not managed from angular.
+			$scope.$apply();
+		}, 1000);
+	});
+</script>
+</head>
+<body ng-controller="NameCtrl">
+	First Name:
+	<input ng-model="firstName" type="text" />
+	<br /> Last Name:
+	<input ng-model="lastName" type="text" />
+	<br /> Hello {{firstName}} {{lastName}}
+</body>
+</html>
