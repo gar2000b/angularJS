@@ -22,3 +22,12 @@ Name: <input type="text" ng-model="name" /> {{ name }} - data binding expression
 
 Modules: config -> routes -> View && Controller
 Modules are Object Containers.
+
+----
+
+test directory has a basic example proving that routes work OK.
+
+----
+
+examples directory is filled with examples taken from the following youtube video:
+https://www.youtube.com/watch?v=TRrL5j3MIvo
